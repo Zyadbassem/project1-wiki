@@ -39,3 +39,17 @@ img {
     justify-content: start;
     background-color: transparent;
 }
+
+.side-bar-links a {
+    color: rgb(67, 67, 221)
+}
+
+main {
+    margin: 20px;
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}

@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <div class="side-bar">
@@ -14,7 +15,7 @@
         <div class="side-bar-links">
             <a href="/">home</a>
             <a href="/">rondom</a>
-            <a href="/">add</a>
+            <a href="/add">add</a>
         </div>
     </div>
     <main>

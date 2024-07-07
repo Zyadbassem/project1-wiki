@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
 
 {% block main %}
+
 <ul>
+
     <p>wikis you created:</p>
-    <a href="/"><li>html</li></a>
+    {% for wiki in wikis %}
+    <a href="/"><li>{{ wiki.title }}</li></a>
+    {% endfor %}
 </ul>
 
 {% endblock %}

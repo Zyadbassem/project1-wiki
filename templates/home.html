@@ -6,7 +6,7 @@
 
     <p>wikis you created:</p>
     {% for wiki in wikis %}
-    <a href="/"><li>{{ wiki.title }}</li></a>
+    <a href="/{{ wiki.title }}"><li>{{ wiki.title }}</li></a>
     {% endfor %}
 </ul>
 

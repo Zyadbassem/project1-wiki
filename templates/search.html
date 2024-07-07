@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+    <div class="search-div">
+    <p>you searched for...</p>
+    {% for wiki in wikis %}
+    <a href="/{{ wiki.title }}">{{ wiki.title }}</a>
+    {% endfor %}
+    </div>
+{% endblock %}

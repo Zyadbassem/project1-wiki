@@ -5,10 +5,13 @@
 <form method="post" action="">
     {% csrf_token %}
     <h1>Add new Wiki</h1>
-    <input placeholder="title" name="title">
-    <input type="text" name="description" placeholder="description">
-    <textarea name="details" id="details" cols="30" rows="10" placeholder="details..."></textarea>
+    <input placeholder="title" name="title" autocomplete="off">
+    <input type="text" name="description" placeholder="description" autocomplete="off">
+    <textarea name="details" id="details" cols="30" rows="10" placeholder="details..." autocomplete="off"></textarea>
     <button type="submit">Add</button>
+    {% if error %}
+    <p style="color: rgb(255, 255, 255); width: 150px;background-color: rgb(255, 86, 86);padding: 10px;border-radius: 10px;text-align: center;">{{ error }}</p>
+    {% endif %}
 </form>
 
 {% endblock %}

@@ -4,7 +4,11 @@
 
 
     <div class="search-div">
+    {% if error %}
+    <p>no result</p>
+    {% else %}
     <p>you searched for...</p>
+    {% endif %}
     {% for wiki in wikis %}
     <a href="/{{ wiki.title }}">{{ wiki.title }}</a>
     {% endfor %}

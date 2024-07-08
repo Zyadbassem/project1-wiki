@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<form method="post" action="{% url 'edit' wikiTitle=wiki.title %}">
+    {% csrf_token %}
+    <h1>edit</h1>
+    <textarea name="details" id="details" cols="30" rows="10" placeholder="details..." autocomplete="off" minlength="100">{{ wiki.details }}</textarea>
+    <button type="submit">Add</button>
+    {% if error %}
+    <p style="color: rgb(255, 255, 255); width: 150px;background-color: rgb(255, 86, 86);padding: 10px;border-radius: 10px;text-align: center;">{{ error }}</p>
+    {% endif %}
+</form>
+
+{% endblock %}

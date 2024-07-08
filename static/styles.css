@@ -79,12 +79,16 @@ input {
     padding: 5px;
 }
 
-form button {
+form button, .wiki-details a {
     padding: 5px 15px;
     color: #c8c8c8;
     background-color: black;
     border: 0;
     border-radius: 5px;
+}
+.wiki-details a {
+    margin: 0 auto;
+    text-decoration: none;
 }
 
 .wiki-details, .search-div {

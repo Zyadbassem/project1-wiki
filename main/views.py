@@ -56,10 +56,28 @@ def search(request):
     search_results = Wikis.objects.filter(title__icontains=search_input)
     #checking if it doesn't exict 
     if not search_results.exists():
-        return HttpResponse("No results found")
+        return render(request, "search.html", {'wikis': search_results, 'error': True})
     #rendring the search template
     return render(request, "search.html", {'wikis': search_results})
 
-
+def edit(request, wikiTitle):
+    #getting the wiki we will edit from it's title
+    wantedWiki = Wikis.objects.filter(title=wikiTitle).first()
+    #checking the wiki
+    if not wantedWiki:
+        return render(request, "edit.html", {'wiki': wantedWiki, 'error': 'somthing wrong happened'})
+    #checking if the user sends a form
+    if request.method == "POST":
+    #getting the edited details and checking it
+        details = request.POST.get('details')
+        if not details or len(details) < 100 :
+            return render(request, "edit.html", {'wiki': wantedWiki, 'error': 'invalid input'})
+    #saving the wiki
+        wantedWiki.details = details
+        wantedWiki.save()
+    #redirceting to home page
+        return redirect('home')
+    #if the user access the user with get
+    return render(request, "edit.html", {'wiki': wantedWiki})
 #def favicon(request):
 #return HttpResponse(status=204)
